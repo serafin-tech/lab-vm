@@ -28,8 +28,9 @@ Vagrant.configure("2") do |config|
   # Create a forwarded port mapping which allows access to a specific port
   # within the machine from a port on the host machine and only allow access
   # via 127.0.0.1 to disable public access
-  config.vm.network "forwarded_port", guest: 80, host: 8080, host_ip: "127.0.0.1"
-  config.vm.network "forwarded_port", guest: 443, host: 8443, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 80, host: 8765, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 443, host: 8766, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 3306, host: 8767, host_ip: "127.0.0.1"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -71,9 +72,16 @@ Vagrant.configure("2") do |config|
   # documentation for more information about their specific syntax and use.
   config.vm.provision "shell", inline: <<-SHELL
     apt-get -q update
-    apt-get install -qy mc elinks wget curl net-tools apache2 libapache2-mod-php7.4
+    export DEBIAN_FRONTEND=noninteractive
+    cat /vagrant/debconf.txt | debconf-set-selections
+    apt-get install -qy mc elinks wget curl net-tools apache2 libapache2-mod-php7.4 mariadb-server php7.4-mysql phpmyadmin
     cp -fv /vagrant/apache-site-default.conf /etc/apache2/sites-available/000-default.conf
+    cp -fv /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
     service apache2 restart
+    cat /vagrant/mariadb_root.sql | mysql
+    cp -fv /vagrant/my.cnf /root/.my.cnf
+    cp -fv /vagrant/mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+    service mariadb restart
   SHELL
 
 end

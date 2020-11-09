@@ -1,0 +1,8 @@
+dbconfig-common	dbconfig-common/mysql/admin-pass	password	Som3Passw0rd
+dbconfig-common	dbconfig-common/mysql/admin-user	string	root
+dbconfig-common	dbconfig-common/mysql/app-pass	password	Som3Passw0rd
+phpmyadmin	phpmyadmin/mysql/app-pass	password	Som3Passw0rd
+phpmyadmin	phpmyadmin/app-password-confirm	password	Som3Passw0rd
+phpmyadmin	phpmyadmin/password-confirm	password	Som3Passw0rd
+phpmyadmin	phpmyadmin/mysql/admin-pass	password	Som3Passw0rd
+
