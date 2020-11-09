@@ -4,7 +4,7 @@ Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Aplikac
 
 ## Wymagania systemowe
 
-Uruchomienie maszyny wirtualnej możliwe jest na systemach operacyjnych Windows/MacOS/Linux, jakkolwiek poniższa instrukcja zakłada uzycie systemu Windows. Podczas instalacji (uruchomienie skryptu `start.cmd`) pobierany jest obraz maszyny wirtualnej o rozmiarze 500MB oraz pakiety o łącznym rozmiarze około 100MB.
+Uruchomienie maszyny wirtualnej możliwe jest na systemach operacyjnych Windows/MacOS/Linux, jakkolwiek poniższa instrukcja zakłada użycie systemu Windows. Podczas instalacji (uruchomienie skryptu `start.cmd`) pobierany jest obraz maszyny wirtualnej o rozmiarze 500MB oraz pakiety o łącznym rozmiarze około 200MB.
 Finalny rozmiar maszyny wirtualnej to około 2GB.
 
 Do pracy wymagane jest posiadanie minimum 4GB pamięcia RAM.
@@ -24,15 +24,15 @@ Aby przygotować wirtualną maszyne należy wykonać następujące kroki:
 
 Po zakończonej pracy maszynę zatrzymujemy poprzez skrypt `halt.cmd` i startujemy ją ponownie przy pomocy skryptu `start.cmd`. 
 Gdy chcemy odzyskać miejsce na dysku to możemy użyć skryptu `destroy.cmd`, który skasuje maszynę. 
-Ponowne uzycie skryptu `start.cmd` odtworzy maszynę do stanu jak wg definicji.
+Ponowne użycie skryptu `start.cmd` odtworzy maszynę do stanu jak wg definicji.
 
-## Jak uruchomic aplikację
+## Jak uruchomic własną aplikację
 
 Pliki aplikacji umieszczamy w katalogu `C:\lab-vm\www`. Aplikacja tam umieszczona dostępna jest pod adresem [http://localhost:8765/](http://localhost:8765/). Sprawdzenie działania PHP można dokonać pod adresem [http://localhost:8765/test.php](http://localhost:8765/test.php)
 
 ## Połączenie do bazy danych
 
 Operacje na bazie danych możemy przeprowadzić przy pomocy aplikacji [phpMyAdmin](https://www.phpmyadmin.net/) dostępnej pod adresem [http://localhost:8765/phpmyadmin/](http://localhost:8765/phpmyadmin/). 
-Hasło uzytkownika `root` to `Som3Passw0rd`.
+Hasło użytkownika `root` to `Som3Passw0rd`.
 
 Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w katalogu `www`, nazwa pliku `dbtest.php`. Skrypt zwraca wersję bazy danych i dostępny jest pod adresem [http://localhost:8765/dbtest.php](http://localhost:8765/dbtest.php).
