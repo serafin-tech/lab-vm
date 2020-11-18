@@ -36,3 +36,16 @@ Operacje na bazie danych możemy przeprowadzić przy pomocy aplikacji [phpMyAdmi
 Hasło użytkownika `root` to `Som3Passw0rd`.
 
 Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w katalogu `www`, nazwa pliku `dbtest.php`. Skrypt zwraca wersję bazy danych i dostępny jest pod adresem [http://localhost:8765/dbtest.php](http://localhost:8765/dbtest.php).
+
+## Połączenie przez SSH
+
+Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
+- używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
+- bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako uzytkownik `vagrant` z hasłem `vagrant`.
+
+Po zalogowaniu będziemy ~zwykłym~ użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`.
+
+Wewnątrz maszyny wirtualnej pliki aplkacji dostępne są w katalogu `/vagrant/www`.
+
+Do poruszania się wewnątrz maszyny wirtualnej można używać Midnight Commandera - polecenie `mc`.
+
