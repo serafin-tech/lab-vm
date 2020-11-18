@@ -43,7 +43,7 @@ Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
 - używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
 - bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `vagrant` z hasłem `vagrant`.
 
-Po zalogowaniu będziemy ~zwykłym~ użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`. Do pracy z plikami strony nie potrzebujemy przełączać się na roota.
+Po zalogowaniu będziemy *zwykłym* użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`. Do pracy z plikami strony nie potrzebujemy przełączać się na roota.
 
 Wewnątrz maszyny wirtualnej pliki aplkacji dostępne są w podkatalogu `www` katalogu domowego użytkownika `vagrant` lub bezpośrednio w katalogu `/vagrant/www`.
 
