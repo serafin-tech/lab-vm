@@ -85,6 +85,7 @@ Vagrant.configure("2") do |config|
     curl -s -o /home/vagrant/composer-installer.php https://getcomposer.org/installer
     php /home/vagrant/composer-installer.php > /home/vagrant/composer-installer.php.log
     mv -v /home/vagrant/composer.phar /usr/local/bin/composer
+    ln -s /vagrant/www /home/vagrant/www
   SHELL
 
 end
