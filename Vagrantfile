@@ -82,6 +82,9 @@ Vagrant.configure("2") do |config|
     cp -fv /vagrant/my.cnf /root/.my.cnf
     cp -fv /vagrant/mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
     service mariadb restart
+    curl -s -o /home/vagrant/composer-installer.php https://getcomposer.org/installer
+    php /home/vagrant/composer-installer.php > /home/vagrant/composer-installer.php.log
+    mv -v /home/vagrant/composer.phar /usr/local/bin/composer
   SHELL
 
 end
