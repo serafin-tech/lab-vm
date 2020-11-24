@@ -86,6 +86,9 @@ Vagrant.configure("2") do |config|
     php /home/vagrant/composer-installer.php > /home/vagrant/composer-installer.php.log
     mv -v /home/vagrant/composer.phar /usr/local/bin/composer
     ln -s /vagrant/www /home/vagrant/www
+    mv /etc/ssh/sshd_config /etc/ssh/sshd_config.org
+    sed -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config.org > /etc/ssh/sshd_config
+    service ssh restart
   SHELL
 
 end
