@@ -89,6 +89,8 @@ Vagrant.configure("2") do |config|
     mv /etc/ssh/sshd_config /etc/ssh/sshd_config.org
     sed -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config.org > /etc/ssh/sshd_config
     service ssh restart
+    wget https://get.symfony.com/cli/installer -O - | bash
+    mv -v /root/.symfony/bin/symfony /usr/local/bin/symfony
   SHELL
 
 end
