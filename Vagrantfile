@@ -74,23 +74,10 @@ Vagrant.configure("2") do |config|
     apt-get -q update
     export DEBIAN_FRONTEND=noninteractive
     cat /vagrant/debconf.txt | debconf-set-selections
-    apt-get install -qy mc elinks wget curl net-tools apache2 libapache2-mod-php7.4 mariadb-server php7.4-mysql phpmyadmin
-    cp -fv /vagrant/apache-site-default.conf /etc/apache2/sites-available/000-default.conf
-    cp -fv /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
-    service apache2 restart
-    cat /vagrant/mariadb_root.sql | mysql
-    cp -fv /vagrant/my.cnf /root/.my.cnf
-    cp -fv /vagrant/mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-    service mariadb restart
-    curl -s -o /home/vagrant/composer-installer.php https://getcomposer.org/installer
-    php /home/vagrant/composer-installer.php > /home/vagrant/composer-installer.php.log
-    mv -v /home/vagrant/composer.phar /usr/local/bin/composer
-    ln -s /vagrant/www /home/vagrant/www
+    apt-get install -qy mc elinks wget curl net-tools
     mv /etc/ssh/sshd_config /etc/ssh/sshd_config.org
     sed -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config.org > /etc/ssh/sshd_config
     service ssh restart
-    wget https://get.symfony.com/cli/installer -O - | bash
-    mv -v /root/.symfony/bin/symfony /usr/local/bin/symfony
   SHELL
 
 end
