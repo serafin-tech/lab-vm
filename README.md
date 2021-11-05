@@ -1,6 +1,6 @@
 # lab-vm
 
-Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Aplikacji Internetowych.
+Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Baz Danych (branch //bazy//).
 
 ## Wymagania systemowe
 
@@ -26,10 +26,6 @@ Po zakończonej pracy maszynę zatrzymujemy poprzez skrypt `halt.cmd` i startuje
 Gdy chcemy odzyskać miejsce na dysku to możemy użyć skryptu `destroy.cmd`, który skasuje maszynę. 
 Ponowne użycie skryptu `start.cmd` odtworzy maszynę do stanu jak wg definicji.
 
-## Jak uruchomic własną aplikację
-
-Pliki aplikacji umieszczamy w katalogu `C:\lab-vm\www`. Aplikacja tam umieszczona dostępna jest pod adresem [http://localhost:8765/](http://localhost:8765/). Sprawdzenie działania PHP można dokonać pod adresem [http://localhost:8765/test.php](http://localhost:8765/test.php)
-
 ## Połączenie do bazy danych
 
 Operacje na bazie danych możemy przeprowadzić przy pomocy aplikacji [phpMyAdmin](https://www.phpmyadmin.net/) dostępnej pod adresem [http://localhost:8765/phpmyadmin/](http://localhost:8765/phpmyadmin/). 
@@ -43,9 +39,7 @@ Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
 - używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
 - bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `vagrant` z hasłem `vagrant`.
 
-Po zalogowaniu będziemy *zwykłym* użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`. Do pracy z plikami strony nie potrzebujemy przełączać się na roota.
-
-Wewnątrz maszyny wirtualnej pliki aplkacji dostępne są w podkatalogu `www` katalogu domowego użytkownika `vagrant` lub bezpośrednio w katalogu `/vagrant/www`.
+Po zalogowaniu będziemy *zwykłym* użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`.
 
 Do poruszania się wewnątrz maszyny wirtualnej można używać Midnight Commandera - polecenie `mc`.
 
