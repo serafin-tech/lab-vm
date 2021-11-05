@@ -1,6 +1,6 @@
 # lab-vm
 
-Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Aplikacji Internetowych.
+Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Aplikacji Internetowych (branch //aplikacje//).
 
 ## Wymagania systemowe
 
