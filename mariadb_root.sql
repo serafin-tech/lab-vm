@@ -1,2 +1,4 @@
-alter user 'root'@'localhost' identified by 'Som3Passw0rd';
-flush privileges;
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'Som3Passw0rd';
+CREATE USER 'root'@'%' IDENTIFIED BY 'Som3Passw0rd';
+GRANT ALL PRIVILEGES ON *.* TO `root`@`%`;
+FLUSH PRIVILEGES;
