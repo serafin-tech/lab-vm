@@ -12,7 +12,8 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  config.vm.box = "ubuntu/focal64"
+  #config.vm.box = "ubuntu/focal64"
+  config.vm.box = "debian/bullseye64"
 
   # Disable automatic box update checking. If you disable this, then
   # boxes will only be checked for updates when the user runs
@@ -31,6 +32,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8765, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 443, host: 8766, host_ip: "127.0.0.1"
   config.vm.network "forwarded_port", guest: 3306, host: 8767, host_ip: "127.0.0.1"
+  config.vm.network "forwarded_port", guest: 3306, host: 3306, host_ip: "127.0.0.1"
 
   # Create a private network, which allows host-only access to the machine
   # using a specific IP.
@@ -70,22 +72,9 @@ Vagrant.configure("2") do |config|
   # Enable provisioning with a shell script. Additional provisioners such as
   # Ansible, Chef, Docker, Puppet and Salt are also available. Please see the
   # documentation for more information about their specific syntax and use.
-  config.vm.provision "shell", inline: <<-SHELL
-    apt-get -q update
-    export DEBIAN_FRONTEND=noninteractive
-    cat /vagrant/debconf.txt | debconf-set-selections
-    apt-get install -qy mc elinks wget curl net-tools apache2 libapache2-mod-php7.4 mariadb-server php7.4-mysql phpmyadmin mycli
-    cp -fv /vagrant/apache-site-default.conf /etc/apache2/sites-available/000-default.conf
-    cp -fv /etc/phpmyadmin/apache.conf /etc/apache2/conf-enabled/phpmyadmin.conf
-    service apache2 restart
-    cat /vagrant/mariadb_root.sql | mysql
-    cp -fv /vagrant/my.cnf /root/.my.cnf
-    cp -fv /vagrant/mariadb.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
-    service mariadb restart
-    ln -s /vagrant/www /home/vagrant/www
-    mv /etc/ssh/sshd_config /etc/ssh/sshd_config.org
-    sed -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_config.org > /etc/ssh/sshd_config
-    service ssh restart
-  SHELL
+  config.vm.provision "shell", inline: "apt-get -q update", run: "once"
+
+  config.vm.provision "shell", path: "provision_script.sh"
+
 
 end
