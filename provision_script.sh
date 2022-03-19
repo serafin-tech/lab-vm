@@ -35,3 +35,5 @@ sed -e 's/^PasswordAuthentication no/PasswordAuthentication yes/' /etc/ssh/sshd_
 service ssh restart
 echo "ssh restart status $?"
 
+usermod -aG mysql vagrant
+
