@@ -22,13 +22,13 @@ Aby przygotować wirtualną maszyne należy wykonać następujące kroki:
 3. pobieramy plik z zawartością repozytorium (lub klonujemy repozytorium przy pomocy GITa), pliki umieszczamy np w katalogu `C:\lab-vm` - link do pobrania repozytorium dostępny pod zielonym przyciskiem z napisem *Code*,
 4. uruchamiamy wirtualną maszynę przy pomocy skryptu `start.cmd` - konfiguracja przebiegnie automatycznie,
 
-Po zakończonej pracy maszynę zatrzymujemy poprzez skrypt `halt.cmd` i startujemy ją ponownie przy pomocy skryptu `start.cmd`. 
-Gdy chcemy odzyskać miejsce na dysku to możemy użyć skryptu `destroy.cmd`, który skasuje maszynę. 
+Po zakończonej pracy maszynę zatrzymujemy poprzez skrypt `halt.cmd` i startujemy ją ponownie przy pomocy skryptu `start.cmd`.
+Gdy chcemy odzyskać miejsce na dysku to możemy użyć skryptu `destroy.cmd`, który skasuje maszynę.
 Ponowne użycie skryptu `start.cmd` odtworzy maszynę do stanu jak wg definicji.
 
 ## Połączenie do bazy danych
 
-Operacje na bazie danych możemy przeprowadzić przy pomocy aplikacji [phpMyAdmin](https://www.phpmyadmin.net/) dostępnej pod adresem [http://localhost:8765/phpmyadmin/](http://localhost:8765/phpmyadmin/). 
+Operacje na bazie danych możemy przeprowadzić przy pomocy aplikacji [phpMyAdmin](https://www.phpmyadmin.net/) dostępnej pod adresem [http://localhost:8765/phpmyadmin/](http://localhost:8765/phpmyadmin/).
 Hasło użytkownika `root` to `Som3Passw0rd`.
 
 Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w katalogu `www`, nazwa pliku `dbtest.php`. Skrypt zwraca wersję bazy danych i dostępny jest pod adresem [http://localhost:8765/dbtest.php](http://localhost:8765/dbtest.php).
@@ -37,7 +37,8 @@ Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w kata
 
 Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
 - używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
-- bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `vagrant` z hasłem `vagrant`.
+- bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `student` z hasłem `Som3Passw0rd`,
+- przy pomocy przeglądarki poprzez [SSH Web Console](http://localhost:2022/), jako host podajemy `172.17.0.1:22`, jako użytkownik `student` z hasłem `Som3Passw0rd`.
 
 Po zalogowaniu będziemy *zwykłym* użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`.
 
