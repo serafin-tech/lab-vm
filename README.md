@@ -35,7 +35,7 @@ Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w kata
 
 ## Połączenie przez SSH
 
-Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
+Przez SSH do maszyny wirtualnej możemy połączyć się na trzy sposoby:
 - używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
 - bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `student` z hasłem `Som3Passw0rd`,
 - przy pomocy przeglądarki poprzez [SSH Web Console](http://localhost:2022/), jako host podajemy `172.17.0.1:22`, jako użytkownik `student` z hasłem `Som3Passw0rd`.
