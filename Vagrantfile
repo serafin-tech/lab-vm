@@ -8,11 +8,9 @@ post_up_msg = <<MSG
   - konsola graficzna: http://localhost:8765/phpmyadmin/
   - konsola znakowa 'waniliowa': vagrant ssh
   - konsola znakowa przez przeglądarkę: http://localhost:2022/
-  
+
 ----------------------------------------------------------------
 MSG
-
-
 
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
@@ -25,7 +23,6 @@ Vagrant.configure("2") do |config|
 
   # Every Vagrant development environment requires a box. You can search for
   # boxes at https://vagrantcloud.com/search.
-  #config.vm.box = "ubuntu/focal64"
   config.vm.box = "debian/bullseye64"
   config.vm.post_up_message = $post_up_msg
 
@@ -71,6 +68,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision "shell", inline: "apt-get -q update", run: "once"
 
   config.vm.provision "shell", path: "provision_script.sh"
-
 
 end
