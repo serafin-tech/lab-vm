@@ -4,12 +4,11 @@ Repozytorium zawiera definicje maszyny wirtualnej do budowy laboratorium Baz Dan
 
 ## Wymagania systemowe
 
-Uruchomienie maszyny wirtualnej możliwe jest na systemach operacyjnych Windows/MacOS/Linux, jakkolwiek poniższa instrukcja zakłada użycie systemu Windows. Podczas instalacji (uruchomienie skryptu `start.cmd`) pobierany jest obraz maszyny wirtualnej o rozmiarze 500MB oraz pakiety o łącznym rozmiarze około 200MB.
+Uruchomienie maszyny wirtualnej możliwe jest na systemach operacyjnych Windows/MacOS/Linux, jakkolwiek poniższa instrukcja zakłada użycie systemu Windows. 
+Podczas instalacji (uruchomienie skryptu `start.cmd`) pobierany jest obraz maszyny wirtualnej o rozmiarze 500MB oraz pakiety o łącznym rozmiarze około 200MB.
 Finalny rozmiar maszyny wirtualnej to około 2GB.
 
-Do pracy wymagane jest posiadanie minimum 4GB pamięcia RAM.
-
-Dla systemu Windows 7 może wystąpić konieczność instalacji Powershella w nowszej wersji. Instrukcja instalacji zawarta jest w artykule [docs.microsoft.com](https://docs.microsoft.com/pl-pl/powershell/scripting/windows-powershell/install/installing-windows-powershell?view=powershell-7).
+Do pracy wymagane jest posiadanie minimum 8GB pamięcia RAM.
 
 Podczas instalacji zalecane jest wyłączenie oprogramowania antywirusowego.
 
@@ -17,10 +16,10 @@ Podczas instalacji zalecane jest wyłączenie oprogramowania antywirusowego.
 
 Aby przygotować wirtualną maszyne należy wykonać następujące kroki:
 
-1. pobieramy i instalujemy [VirtualBoxa](https://www.virtualbox.org/wiki/Downloads),
-2. pobieramy i instalujemy [Vagranta](https://www.vagrantup.com/downloads.html),
-3. pobieramy plik z zawartością repozytorium (lub klonujemy repozytorium przy pomocy GITa), pliki umieszczamy np w katalogu `C:\lab-vm` - link do pobrania repozytorium dostępny pod zielonym przyciskiem z napisem *Code*,
-4. uruchamiamy wirtualną maszynę przy pomocy skryptu `start.cmd` - konfiguracja przebiegnie automatycznie,
+1. pobierać i zainstalować [VirtualBoxa](https://www.virtualbox.org/wiki/Downloads),
+2. pobierać i zainstalować [Vagranta](https://www.vagrantup.com/downloads.html),
+3. pobierać plik z zawartością repozytorium (ew pobrać repozytorium przy pomocy GITa), pliki umieszczamy np w katalogu `C:\lab-vm` - link do pobrania repozytorium dostępny pod zielonym przyciskiem z napisem *Code*,
+4. uruchomić maszynę wirtualną przy pomocy skryptu `start.cmd` - konfiguracja przebiegnie automatycznie,
 
 Po zakończonej pracy maszynę zatrzymujemy poprzez skrypt `halt.cmd` i startujemy ją ponownie przy pomocy skryptu `start.cmd`.
 Gdy chcemy odzyskać miejsce na dysku to możemy użyć skryptu `destroy.cmd`, który skasuje maszynę.
@@ -35,12 +34,10 @@ Przykładowy skrypt testujący połączenie z bazą danych dostępny jest w kata
 
 ## Połączenie przez SSH
 
-Przez SSH do maszyny wirtualnej możemy połączyć się na trzy sposoby:
+Przez SSH do maszyny wirtualnej możemy połączyć się na dwa sposoby:
 - używając skryptu `ssh.cmd` (czyli przy pomocy Vagranta),
 - bezpośrednio przez PuTTy łącząc się na adres `127.0.0.1:2222`, logujemy się wtedy jako użytkownik `student` z hasłem `Som3Passw0rd`,
-- przy pomocy przeglądarki poprzez [SSH Web Console](http://localhost:2022/), jako host podajemy `172.17.0.1:22`, jako użytkownik `student` z hasłem `Som3Passw0rd`.
 
 Po zalogowaniu będziemy *zwykłym* użytkownikiem, aby przełączyć się na użytkownika `root` należy wydać polecenie `sudo -i`.
 
 Do poruszania się wewnątrz maszyny wirtualnej można używać Midnight Commandera - polecenie `mc`.
-
